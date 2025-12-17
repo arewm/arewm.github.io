@@ -1,0 +1,25 @@
+# Site settings
+title: Andrew McNamara
+email: contact@arewm.com
+description: >-
+  Personal website of Andrew McNamara - Software Engineer, Developer, and Technology Enthusiast.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://arewm.com" # the base hostname & protocol for your site
+github_username: arewm
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
