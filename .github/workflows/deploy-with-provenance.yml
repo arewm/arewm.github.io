@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      artifact-id: ${{ steps.upload.outputs.artifact-id }}
+      artifact-digest: ${{ steps.hash.outputs.digest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,9 +39,26 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Upload artifact
-        id: upload
+      - name: Create tarball of site
+        run: |
+          tar -czf site.tar.gz -C _site .
+
+      - name: Generate artifact hash
+        id: hash
+        run: |
+          set -euo pipefail
+          sha256=$(sha256sum site.tar.gz | awk '{print $1}')
+          echo "digest=sha256:$sha256" >> "$GITHUB_OUTPUT"
+
+      - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
+
+      - name: Upload tarball for provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-artifact
+          path: site.tar.gz
+          if-no-files-found: error
 
   # Generate SLSA provenance
   provenance:
@@ -52,8 +69,9 @@ jobs:
       contents: write
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
     with:
-      base64-subjects: "${{ needs.build.outputs.artifact-id }}"
+      base64-subjects: "${{ needs.build.outputs.artifact-digest }}"
       upload-assets: true
+      provenance-name: "site.intoto.jsonl"
 
   # Deploy to GitHub Pages
   deploy:

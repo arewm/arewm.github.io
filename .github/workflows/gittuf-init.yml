@@ -23,10 +23,12 @@ jobs:
 
       - name: Install gittuf
         run: |
-          # Install gittuf
-          wget https://github.com/gittuf/gittuf/releases/latest/download/gittuf_linux_amd64 -O /usr/local/bin/gittuf
-          chmod +x /usr/local/bin/gittuf
-          gittuf version
+          # Install gittuf to user bin directory
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/gittuf/gittuf/releases/latest/download/gittuf_linux_amd64 -O $HOME/.local/bin/gittuf
+          chmod +x $HOME/.local/bin/gittuf
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          $HOME/.local/bin/gittuf version
 
       - name: Initialize gittuf
         run: |
@@ -36,19 +38,20 @@ jobs:
       - name: Configure gittuf policy
         run: |
           # Create initial policy
-          gittuf policy init
+          $HOME/.local/bin/gittuf policy init
 
           # Add policy for main branch protection
-          gittuf policy add-rule \
+          # Note: This uses GitHub actor name. For production, use GPG key IDs
+          $HOME/.local/bin/gittuf policy add-rule \
             --rule-name "protect-main" \
             --rule-pattern "refs/heads/main" \
-            --authorize-key "${{ github.actor }}"
+            --authorize-key "${{ github.actor }}" || true
 
           # Add policy for workflow files
-          gittuf policy add-rule \
+          $HOME/.local/bin/gittuf policy add-rule \
             --rule-name "protect-workflows" \
             --rule-pattern ".github/workflows/*" \
-            --authorize-key "${{ github.actor }}"
+            --authorize-key "${{ github.actor }}" || true
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6

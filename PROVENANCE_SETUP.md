@@ -36,9 +36,10 @@ gittuf provides Git-native source provenance using:
 
 ```bash
 # Install gittuf
-wget https://github.com/gittuf/gittuf/releases/latest/download/gittuf_linux_amd64
-chmod +x gittuf_linux_amd64
-sudo mv gittuf_linux_amd64 /usr/local/bin/gittuf
+mkdir -p $HOME/.local/bin
+wget https://github.com/gittuf/gittuf/releases/latest/download/gittuf_linux_amd64 -O $HOME/.local/bin/gittuf
+chmod +x $HOME/.local/bin/gittuf
+export PATH="$HOME/.local/bin:$PATH"
 
 # Initialize gittuf
 gittuf trust init
@@ -74,12 +75,17 @@ SLSA (Supply-chain Levels for Software Artifacts) is a framework for ensuring th
 
 ### What Gets Attested?
 
-For this Jekyll site, the following artifacts receive SLSA Level 3 provenance:
+For this Jekyll site, the following artifact receives SLSA Level 3 provenance:
 
-- **_site/ directory**: All generated HTML, CSS, and JavaScript files
-- **Build metadata**: Ruby version, Jekyll version, dependencies
-- **Build environment**: GitHub Actions runner, timestamps
-- **Source information**: Commit SHA, branch, repository
+- **site.tar.gz**: Compressed archive of the entire _site/ directory containing all generated HTML, CSS, and JavaScript files
+- **Build metadata**: Ruby version, Jekyll version, dependencies (Gemfile.lock)
+- **Build environment**: GitHub Actions runner details, timestamps, workflow information
+- **Source information**: Exact commit SHA, branch name, repository URL
+
+The provenance file cryptographically links the artifact to:
+- The exact source code commit that produced it
+- The build commands that were executed
+- The isolated environment where the build occurred
 
 ### Provenance File
 
@@ -96,12 +102,24 @@ Verify the build provenance using slsa-verifier:
 # Install slsa-verifier
 go install github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier@latest
 
-# Download the provenance file from GitHub Actions artifacts
-# Then verify:
-slsa-verifier verify-artifact \
-  --provenance-path <provenance-file.intoto.jsonl> \
-  --source-uri github.com/arewm/arewm.github.io \
-  <artifact-path>
+# Download the artifacts from GitHub Actions:
+# 1. site-artifact.zip (contains site.tar.gz)
+# 2. site.intoto.jsonl (the provenance file)
+
+# Extract the artifact
+unzip site-artifact.zip
+
+# Verify the provenance
+slsa-verifier verify-artifact site.tar.gz \
+  --provenance-path site.intoto.jsonl \
+  --source-uri github.com/arewm/arewm.github.io
+```
+
+Example successful output:
+```
+Verified signature against tlog entry index 12345678 at URL: https://rekor.sigstore.dev/api/v1/log/entries/...
+Verified build using builder https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v2.0.0 at commit abc123...
+PASSED: Verified SLSA provenance
 ```
 
 ### What SLSA Level 3 Provides
