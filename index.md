@@ -6,16 +6,20 @@ author_profile: true
 
 ## About Me
 
-Welcome to my personal website! I'm a software engineer passionate about building 
-efficient, scalable solutions and exploring new technologies. I enjoy working on 
-challenging problems and sharing knowledge with the community.
+Welcome to my personal website! I'm a software supply chain architect passionate 
+about usable CI/CD, security, and DevSecOps. As a SLSA maintainer, I help people 
+understand and approach supply chain security. I work at Red Hat as a contributor 
+to the Konflux CI project, providing developer flexibility without sacrificing 
+software security.
 
 [Learn more about me](/about/){: .btn .btn--primary}
 
-## Presentations
+## Presentations & Speaking
 
-I share my knowledge through technical presentations on various topics. Check out 
-my presentation materials and slides on GitHub.
+I share my knowledge through technical presentations at conferences and community 
+events, focusing on supply chain security, CI/CD, and DevSecOps practices.
+
+[View Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
 
 [View Presentations on GitHub](https://github.com/arewm/presentations){: .btn .btn--primary}
 

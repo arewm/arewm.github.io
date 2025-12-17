@@ -2,7 +2,8 @@
 title: Andrew McNamara
 email: contact@arewm.com
 description: >-
-  Personal website of Andrew McNamara - Software Engineer, Developer, and Technology Enthusiast.
+  Software supply chain architect passionate about usable CI/CD, security, and DevSecOps. 
+  SLSA maintainer working on supply chain security at Red Hat.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://arewm.com" # the base hostname & protocol for your site
 github_username: arewm
@@ -24,18 +25,24 @@ plugins:
 author:
   name: "Andrew McNamara"
   avatar: # path to avatar image
-  bio: "Software Engineer | Developer | Technology Enthusiast"
+  bio: "Software supply chain architect | SLSA maintainer | DevSecOps advocate"
   email: "contact@arewm.com"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/arewm"
+    - label: "Sessionize"
+      icon: "fas fa-fw fa-microphone"
+      url: "https://sessionize.com/arewm"
 
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/arewm"
+    - label: "Sessionize"
+      icon: "fas fa-fw fa-microphone"
+      url: "https://sessionize.com/arewm"
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:contact@arewm.com"
