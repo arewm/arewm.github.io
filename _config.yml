@@ -24,7 +24,7 @@ plugins:
 # Minimal Mistakes settings
 author:
   name: "Andrew McNamara"
-  avatar: # path to avatar image
+  avatar: "https://avatars.githubusercontent.com/u/16674323"
   bio: "Software supply chain architect | SLSA maintainer | DevSecOps advocate"
   email: "contact@arewm.com"
   links:
