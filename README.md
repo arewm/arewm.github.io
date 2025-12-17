@@ -48,8 +48,13 @@ See [SSL_SETUP.md](SSL_SETUP.md) for detailed instructions on configuring the cu
 
 - **Jekyll**: Static site generator
 - **GitHub Pages**: Hosting platform
+- **Minimal Mistakes**: Professional Jekyll theme
 - **Let's Encrypt**: SSL certificates (automatic through GitHub Pages)
-- **Custom CSS**: Modern, responsive styling
+- **GitHub Copilot**: AI assistance for site generation
+
+## Acknowledgments
+
+This website was generated with assistance from GitHub Copilot.
 
 ## Links
 
@@ -58,4 +63,4 @@ See [SSL_SETUP.md](SSL_SETUP.md) for detailed instructions on configuring the cu
 
 ## License
 
-© 2024 Andrew McNamara. All rights reserved.
+© 2025 Andrew McNamara. All rights reserved.
