@@ -14,7 +14,7 @@ This repository includes GitHub Actions workflows to automatically deploy PR pre
 1. When a PR is opened or updated, the workflow builds the Jekyll site
 2. The built site is deployed to Netlify with a unique URL: `https://pr-<number>--<your-site>.netlify.app`
 3. A comment is added to the PR with the preview URL
-4. When the PR is closed or merged, the preview deployment is automatically deleted
+4. When the PR is closed or merged, Netlify automatically marks the preview as inactive (note: the URL may remain for a period but will show as a past deployment)
 
 ## Setup Required
 
@@ -81,4 +81,8 @@ If you prefer not to use Netlify, alternatives include:
 ## Files
 
 - `.github/workflows/pr-preview.yml`: Builds and deploys PR previews
-- `.github/workflows/pr-preview-cleanup.yml`: Deletes previews when PRs close
+- `.github/workflows/pr-preview-cleanup.yml`: Posts cleanup notification when PRs close
+
+## Note on Cleanup
+
+Netlify preview deployments are automatically marked as inactive when the source branch is deleted (which happens after PR merge). The cleanup workflow simply posts a notification comment. If you want to manually delete old deployments, you can do so from the Netlify dashboard under Deploys → Deploy Previews.
