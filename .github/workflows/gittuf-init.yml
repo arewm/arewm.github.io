@@ -1,0 +1,80 @@
+name: Initialize gittuf
+
+on:
+  workflow_dispatch:
+    inputs:
+      signing_key:
+        description: 'GPG Key ID for signing (optional)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  setup-gittuf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install gittuf
+        run: |
+          # Install gittuf
+          wget https://github.com/gittuf/gittuf/releases/latest/download/gittuf_linux_amd64 -O /usr/local/bin/gittuf
+          chmod +x /usr/local/bin/gittuf
+          gittuf version
+
+      - name: Initialize gittuf
+        run: |
+          # Initialize gittuf for this repository
+          gittuf trust init
+
+      - name: Configure gittuf policy
+        run: |
+          # Create initial policy
+          gittuf policy init
+
+          # Add policy for main branch protection
+          gittuf policy add-rule \
+            --rule-name "protect-main" \
+            --rule-pattern "refs/heads/main" \
+            --authorize-key "${{ github.actor }}"
+
+          # Add policy for workflow files
+          gittuf policy add-rule \
+            --rule-name "protect-workflows" \
+            --rule-pattern ".github/workflows/*" \
+            --authorize-key "${{ github.actor }}"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Initialize gittuf for source provenance"
+          branch: gittuf-init
+          title: "Initialize gittuf for source provenance"
+          body: |
+            This PR initializes gittuf for source provenance tracking.
+
+            ## What is gittuf?
+
+            gittuf provides Git-native source provenance using in-toto attestations and The Update Framework (TUF).
+
+            ## Changes
+
+            - Initialized gittuf trust root
+            - Created initial policy protecting main branch
+            - Created policy for workflow files
+
+            ## Next Steps
+
+            After merging:
+            1. All commits will be tracked with source provenance
+            2. Policy violations will be detected
+            3. Audit trail of all changes maintained
+
+            For more information: https://github.com/gittuf/gittuf

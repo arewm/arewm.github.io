@@ -16,6 +16,7 @@ This is a personal website built with Jekyll and hosted on GitHub Pages. It will
 - SSL/HTTPS enabled through GitHub Pages
 - Built with Jekyll for easy content management
 - **PR Preview Deployments**: Automatic preview URLs for pull requests (see [PR_PREVIEW_SETUP.md](PR_PREVIEW_SETUP.md))
+- **Supply Chain Security**: Source provenance (gittuf) and build provenance (SLSA) (see [PROVENANCE_SETUP.md](PROVENANCE_SETUP.md))
 
 ## Local Development
 
@@ -33,7 +34,15 @@ bundle exec jekyll serve
 
 ## Deployment
 
-The site automatically deploys to GitHub Pages when changes are pushed to the main branch.
+The site automatically deploys to GitHub Pages when changes are pushed to the main branch with SLSA build provenance.
+
+### Supply Chain Security
+
+This repository implements both source and build provenance:
+- **gittuf**: Source provenance tracking for all commits
+- **SLSA Level 3**: Build provenance for Jekyll artifacts
+
+See [PROVENANCE_SETUP.md](PROVENANCE_SETUP.md) for setup and verification instructions.
 
 ### PR Preview Deployments
 
@@ -55,6 +64,8 @@ See [SSL_SETUP.md](SSL_SETUP.md) for detailed instructions on configuring the cu
 - **GitHub Pages**: Hosting platform
 - **Minimal Mistakes**: Professional Jekyll theme
 - **Let's Encrypt**: SSL certificates (automatic through GitHub Pages)
+- **gittuf**: Source provenance tracking
+- **SLSA**: Build provenance generation (Level 3)
 - **GitHub Copilot**: AI assistance for site generation
 
 ## Acknowledgments
