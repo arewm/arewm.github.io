@@ -1,0 +1,68 @@
+# Site settings
+title: Andrew McNamara
+email: contact@arewm.com
+description: >-
+  Software supply chain architect passionate about usable CI/CD, security, and DevSecOps. 
+  SLSA maintainer working on supply chain security at Red Hat.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://arewm.com" # the base hostname & protocol for your site
+github_username: arewm
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-include-cache
+
+# Minimal Mistakes settings
+author:
+  name: "Andrew McNamara"
+  avatar: "https://avatars.githubusercontent.com/u/16674323"
+  bio: "Software supply chain architect | SLSA maintainer | DevSecOps advocate"
+  email: "contact@arewm.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/arewm"
+    - label: "Sessionize"
+      icon: "fas fa-fw fa-microphone"
+      url: "https://sessionize.com/arewm"
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/arewm"
+    - label: "Sessionize"
+      icon: "fas fa-fw fa-microphone"
+      url: "https://sessionize.com/arewm"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:contact@arewm.com"
+
+# Defaults
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
