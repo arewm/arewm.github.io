@@ -16,12 +16,12 @@ software security.
 
 ## Presentations & Speaking
 
-I share my knowledge through technical presentations at conferences and community 
+I share my knowledge through technical presentations at conferences and community
 events, focusing on supply chain security, CI/CD, and DevSecOps practices.
 
-[View Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
+[View Presentations](https://slides.arewm.com){: .btn .btn--primary}
 
-[View Presentations on GitHub](https://github.com/arewm/presentations){: .btn .btn--primary}
+[View Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
 
 ## Get in Touch
 

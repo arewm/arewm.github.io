@@ -38,13 +38,13 @@ systems that empower developers while maintaining high security standards.
 
 ## Presentations & Speaking
 
-I enjoy sharing knowledge through technical presentations at conferences and community 
-events. You can find more about my speaking experience and topics on my Sessionize 
+I enjoy sharing knowledge through technical presentations at conferences and community
+events. You can find more about my speaking experience and topics on my Sessionize
 profile.
 
-[View My Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
+[View My Presentations](https://slides.arewm.com){: .btn .btn--primary}
 
-[View My Presentation Materials on GitHub](https://github.com/arewm/presentations){: .btn .btn--primary}
+[View My Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
 
 ## Get in Touch
 
