@@ -30,7 +30,7 @@ systems that empower developers while maintaining high security standards.
 ## Interests & Community Involvement
 
 - Open source software development and collaboration
-- Supply chain security and SLSA framework
+- Supply chain security and the SLSA framework
 - DevOps and CI/CD automation tooling
 - Konflux CI project at Red Hat
 - Technical presentations and knowledge sharing
@@ -39,12 +39,9 @@ systems that empower developers while maintaining high security standards.
 ## Presentations & Speaking
 
 I enjoy sharing knowledge through technical presentations at conferences and community
-events. You can find more about my speaking experience and topics on my Sessionize
-profile.
+events.
 
 [View My Presentations](https://slides.arewm.com){: .btn .btn--primary}
-
-[View My Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
 
 ## Get in Touch
 
