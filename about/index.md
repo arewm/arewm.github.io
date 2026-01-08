@@ -9,6 +9,8 @@ I'm Andrew McNamara, a software supply chain architect passionate about usable C
 security, and DevSecOps. I draw from my experience of building and shipping 
 containerized software at IBM and Red Hat.
 
+All opinions expressed here are my own.
+
 ## What I Do
 
 As a SLSA maintainer, I help people identify how to approach and understand supply 
@@ -50,4 +52,3 @@ or explore collaboration opportunities:
 
 - **Email:** [{{ site.email }}](mailto:{{ site.email }})
 - **GitHub:** [@{{ site.github_username }}](https://github.com/{{ site.github_username }})
-- **Sessionize:** [arewm](https://sessionize.com/arewm)

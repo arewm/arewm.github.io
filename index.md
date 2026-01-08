@@ -12,6 +12,8 @@ understand and approach supply chain security. I work at Red Hat as a contributo
 to the Konflux CI project, providing developer flexibility without sacrificing 
 software security.
 
+All opinions expressed here are my own.
+
 [Learn more about me](/about/){: .btn .btn--primary}
 
 ## Presentations & Speaking
@@ -20,8 +22,6 @@ I share my knowledge through technical presentations at conferences and communit
 events, focusing on supply chain security, CI/CD, and DevSecOps practices.
 
 [View Presentations](https://slides.arewm.com){: .btn .btn--primary}
-
-[View Speaker Profile on Sessionize](https://sessionize.com/arewm){: .btn .btn--primary}
 
 ## Get in Touch
 
