@@ -14,6 +14,7 @@ remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
@@ -25,14 +26,14 @@ author:
   name: "Andrew McNamara"
   avatar: "https://avatars.githubusercontent.com/u/16674323"
   bio: "Usable supply chain security advocate and SLSA maintainer"
-  email: "contact[at]arewm.com"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/arewm"
-    - label: "Sessionize"
-      icon: "fas fa-fw fa-microphone"
-      url: "https://sessionize.com/arewm"
+  # email: "contact[at]arewm.com"
+  # links:
+  #   - label: "GitHub"
+  #     icon: "fab fa-fw fa-github"
+  #     url: "https://github.com/arewm"
+  #   - label: "Sessionize"
+  #     icon: "fas fa-fw fa-microphone"
+  #     url: "https://sessionize.com/arewm"
 
 footer:
   links:
