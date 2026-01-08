@@ -6,7 +6,7 @@ author_profile: true
 
 ## About Me
 
-Welcome to my personal website! I'm a software supply chain architect passionate 
+I'm a software supply chain architect passionate 
 about usable CI/CD, security, and DevSecOps. As a SLSA maintainer, I help people 
 understand and approach supply chain security. I work at Red Hat as a contributor 
 to the Konflux CI project, providing developer flexibility without sacrificing 
